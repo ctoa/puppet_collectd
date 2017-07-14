@@ -15,9 +15,9 @@ Puppet::Parser::Functions.newfunction(:get_dimensions, :type => :rvalue) do |arg
             begin
                 response = http.request(Net::HTTP::Get.new(uri.request_uri))
             rescue Timeout::Error
-               puts "ERROR: Unable to get AWS metadata, Timeout due to reading"
+                puts "ERROR: Unable to get AWS metadata, Timeout due to reading"
             rescue Exception
-               puts "ERROR: Unable to get AWS metadata, exception occurred!"
+                puts "ERROR: Unable to get AWS metadata, exception occurred!"
             end
         rescue Timeout::Error
             puts "ERROR: Unable to get AWS metadata, Timeout due to connecting"
