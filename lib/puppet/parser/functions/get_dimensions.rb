@@ -31,7 +31,7 @@ Puppet::Parser::Functions.newfunction(:get_dimensions, :type => :rvalue) do |arg
     end
 
     unless dimension_list.empty?
-        dimension_list.sort_by { |k| k }.each { |key, value| dimensions << "sfxdim_#{key}=#{value}&" }
+        dimension_list.sort_by { |k| k }.each { |key, value| dimensions << "sfxdim_#{URI.escape(key.to_s)}=#{URI.escape(value.to_s)}&" }
     end
 
     dimensions[0...-1]
