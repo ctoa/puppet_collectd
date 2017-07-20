@@ -17,7 +17,6 @@ class collectd::plugins::signalfx(
 
   $dimensions = get_dimensions($dimension_list, $aws_integration)
   $signalfx_api_endpoint_with_dimensions = "${signalfx_api_endpoint}${dimensions}"
-  notify {"Collectd will transmit metrics to this url: ${signalfx_api_endpoint_with_dimensions}":}
 
   collectd::check_and_install_package { 'signalfx-collectd-plugin':
     before  => File['load Signalfx plugin']
