@@ -1,14 +1,13 @@
 # common code for the 3rd party plugins
 #
 define collectd::plugins::plugin_common (
+  $plugin_content,
   $plugin_file_name,
-  $plugin_template,
   $package_name = 'UNSET',
   $package_ensure = present,
   $package_required = false,
 ){
   validate_string($plugin_file_name)
-  validate_string($plugin_template)
 
   if $package_name != 'UNSET' and $package_required == true {
     collectd::check_and_install_package { "${package_name} for ${plugin_file_name}":
@@ -24,7 +23,7 @@ define collectd::plugins::plugin_common (
     owner   => 'root',
     group   => 'root',
     mode    => '0640',
-    content => template($plugin_template),
+    content => $plugin_content,
     notify  => Service['collectd'],
     require => Class['collectd::config']
   }

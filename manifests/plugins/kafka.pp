@@ -15,6 +15,6 @@ class collectd::plugins::kafka (
     package_ensure   => $package_ensure,
     package_required => $package_required,
     plugin_file_name => '20-kafka.conf',
-    plugin_template  => $plugin_template,
+    plugin_content   => template($plugin_template),
   }
 }

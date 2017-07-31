@@ -15,6 +15,6 @@ class collectd::plugins::cassandra (
     package_ensure   => $package_ensure,
     package_required => $package_required,
     plugin_file_name => '20-cassandra.conf',
-    plugin_template  => $plugin_template,
+    plugin_content   => template($plugin_template),
   }
 }

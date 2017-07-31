@@ -16,6 +16,6 @@ class collectd::plugins::postgresql (
     package_ensure   => $package_ensure,
     package_required => $package_required,
     plugin_file_name => '10-postgresql.conf',
-    plugin_template  => $plugin_template,
+    plugin_content   => template($plugin_template),
   }
 }

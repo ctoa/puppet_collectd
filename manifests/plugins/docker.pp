@@ -62,6 +62,6 @@ class collectd::plugins::docker (
     package_ensure   => $package_ensure,
     package_required => $package_required,
     plugin_file_name => '10-docker.conf',
-    plugin_template  => $plugin_template,
+    plugin_content   => template($plugin_template),
   }
 }

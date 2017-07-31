@@ -45,6 +45,6 @@ class collectd::plugins::mesos (
     package_ensure   => $package_ensure,
     package_required => $package_required,
     plugin_file_name => '10-mesos-master.conf',
-    plugin_template  => $plugin_template,
+    plugin_content   => template($plugin_template),
   }
 }

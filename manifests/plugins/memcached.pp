@@ -16,7 +16,7 @@ class collectd::plugins::memcached (
     package_ensure   => $package_ensure,
     package_required => $package_required,
     plugin_file_name => '10-memcached.conf',
-    plugin_template  => $plugin_template,
+    plugin_content   => template($plugin_template),
   }
 }
 

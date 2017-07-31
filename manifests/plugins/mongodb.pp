@@ -51,6 +51,6 @@ class collectd::plugins::mongodb (
     package_ensure   => $package_ensure,
     package_required => $package_required,
     plugin_file_name => '10-mongodb.conf',
-    plugin_template  => $plugin_template,
+    plugin_content   => template($plugin_template),
   }
 }

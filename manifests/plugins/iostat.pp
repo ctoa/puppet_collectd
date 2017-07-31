@@ -46,6 +46,6 @@ class collectd::plugins::iostat (
     package_ensure   => $package_ensure,
     package_required => $package_required,
     plugin_file_name => '10-iostat.conf',
-    plugin_template  => $plugin_template,
+    plugin_content   => template($plugin_template),
   }
 }

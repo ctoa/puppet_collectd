@@ -9,6 +9,6 @@ class collectd::plugins::aggregation(
     package_ensure   => present,
     package_required => false,
     plugin_file_name => '10-aggregation-cpu.conf',
-    plugin_template  => $plugin_template,
+    plugin_content   => template($plugin_template),
   }
 }
